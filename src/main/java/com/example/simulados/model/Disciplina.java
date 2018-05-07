@@ -10,14 +10,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
 @Entity
-@Table(name = "DISCIPLINA")
-@SequenceGenerator(name = "DISCIPLINA_SG", sequenceName = "DISCIPLINA_SEQ", allocationSize = 1)
+@Table(name = "disciplina")
+@SequenceGenerator(name = "disciplina_sg", sequenceName = "disciplina_seq", allocationSize = 1)
 public class Disciplina {
 
 	@Id
-	@GeneratedValue(generator = "DISCIPLINA_SG", strategy = SEQUENCE)
+	@GeneratedValue(generator = "disciplina_sg", strategy = SEQUENCE)
 	private Long id;
 
 	@NotNull
@@ -26,6 +25,15 @@ public class Disciplina {
 
 	@Column(name = "descricao", length = 255)
 	private String descricao;
+	
+	
+
+	public Disciplina(Long id, String nome, String descricao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+	}
 
 	public Long getId() {
 		return id;
